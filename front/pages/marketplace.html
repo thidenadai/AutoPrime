@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lista de Anúncios</title>
+    <style>
+      .anuncio {
+        border: 1px solid #ddd;
+        margin: 10px;
+        padding: 10px;
+        border-radius: 5px;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+      }
+      .anuncio img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 5px;
+        margin: 5px 0;
+      }
+      .anuncio .imagens {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Lista de Anúncios</h1>
+    <div id="anuncios"></div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        fetch("http://localhost:3000/anuncios")
+          .then((response) => response.json())
+          .then((data) => {
+            const anunciosContainer = document.getElementById("anuncios");
+            anunciosContainer.innerHTML = ""; // Limpa o conteúdo existente
+
+            data.forEach((anuncio) => {
+              // Verificar se imagens_urls é um array válido
+              const imagensUrls = Array.isArray(anuncio.imagens_urls)
+                ? anuncio.imagens_urls
+                : [];
+              const imagensHtml = imagensUrls
+                .map((imagemUrl) => {
+                  return `<img src="http://localhost:3000/uploads/${imagemUrl}" alt="${anuncio.modelo}">`;
+                })
+                .join("");
+
+              const precoFormatado = parseFloat(anuncio.preço);
+              if (isNaN(precoFormatado)) {
+                console.error(
+                  `Preço inválido para o anúncio ${anuncio.modelo}`
+                );
+                return;
+              }
+
+              const anuncioElement = document.createElement("div");
+              anuncioElement.classList.add("anuncio");
+
+              anuncioElement.innerHTML = `
+          <h2>${anuncio.modelo} (${anuncio.ano})</h2>
+          <p><strong>Marca:</strong> ${anuncio.marca}</p>
+          <p><strong>Preço:</strong> R$ ${precoFormatado.toFixed(2)}</p>
+          <p><strong>Descrição:</strong> ${anuncio.descrição}</p>
+          <div class="imagens">
+            ${imagensHtml}
+          </div>
+        `;
+
+              anunciosContainer.appendChild(anuncioElement);
+            });
+          })
+          .catch((error) => {
+            console.error("Erro ao buscar anúncios:", error);
+          });
+      });
+    </script>
+  </body>
+</html>

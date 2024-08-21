@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!-- Declaração do tipo de documento e início do HTML -->
+
+  <head>
+    <!-- Seção do cabeçalho do documento -->
+
+    <meta charset="UTF-8" />
+    <!-- Define o conjunto de caracteres como UTF-8, que é um padrão para suportar a maioria dos caracteres e símbolos -->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Define o viewport para garantir que a página seja dimensionada corretamente em dispositivos móveis -->
+
+    <title>Document</title>
+    <!-- Define o título da página que aparece na aba do navegador -->
+
+    <link rel="stylesheet" href="./styles/styles.css" />
+    <!-- Link para um arquivo CSS externo que contém estilos para a página. O caminho relativo sugere que o arquivo está em um diretório acima na pasta "styles" -->
+
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <!-- Link para a biblioteca Boxicons, que fornece ícones para uso no documento. O atributo "rel" especifica que é uma folha de estilo -->
+
+    <script src="./script/scripts.js" defer></script>
+    <!-- Link para um arquivo JavaScript externo. O atributo "defer" faz com que o script seja executado após a página ter sido completamente carregada -->
+  </head>
+
+  <body>
+    <!-- Seção principal do corpo da página -->
+
+    <header class="header">
+      <!-- Seção de cabeçalho, geralmente contém o logo e a navegação principal -->
+
+      <a href="./index.html" class="logo"> </a>
+      <!-- Um link que representa o logotipo da página. O atributo "href" está vazio, então não leva a lugar nenhum -->
+
+      <input type="checkbox" id="check" />
+      <!-- Um checkbox que provavelmente é usado para ativar/desativar um menu móvel -->
+
+      <label for="check" class="icons">
+        <!-- Um rótulo que controla o checkbox. O atributo "for" está associado ao ID do checkbox -->
+
+        <i class="bx bx-menu" id="menu-icon"></i>
+        <!-- Um ícone de menu fornecido pela biblioteca Boxicons, visível quando o menu está fechado -->
+
+        <i class="bx bx-x" id="close-icon"></i>
+        <!-- Um ícone de fechar fornecido pela biblioteca Boxicons, visível quando o menu está aberto -->
+      </label>
+
+      <nav class="navbar">
+        <!-- Navegação principal do site -->
+
+        <a style="--i: 1" href="../index.html">Home</a>
+        <!-- Link para a página inicial do site -->
+
+        <a style="--i: 2" href="./pages/marketplace.html">Marketplace</a>
+        <!-- Link para a página do marketplace -->
+
+        <a style="--i: 3" href="">About</a>
+        <!-- Link para a seção "Sobre" (não tem um destino definido) -->
+
+        <a style="--i: 4" href="">Contact</a>
+        <!-- Link para a seção "Contato" (não tem um destino definido) -->
+
+        <a style="--i: 5" href="">Login</a>
+        <!-- Link para a seção "Login" (não tem um destino definido) -->
+      </nav>
+    </header>
+
+   
+    <section class="imgback">
+      <div class="opacity">
+      <section class="Titulo">
+        <!-- Seção de conteúdo da página -->
+  
+      
+        <!-- Título da seção com o texto "Marketplace" -->
+      </section>
+    <section class="curiosidades">
+      <h2>Curiosidades</h2>
+    <div class="cards">
+
+     
+     <div class="card">
+      <div class="card_inner">
+        <div class="card_front">
+          <img src="./images/dodge.jpg" alt="">
+        </div>
+        <div class="card_back">
+          <h2>Dodge</h2>
+          <a href="./pages/marketplace.html" class="introduçaocarro" >Os carros Dodge são conhecidos por sua audaciosa potência e estilo agressivo, oferecendo uma combinação emocionante de desempenho robusto e design imponente.</a>
+        </div>
+      </div>
+     </div>
+
+     <div class="card">
+      <div class="card_inner">
+        <div class="card_front">
+          <img src="./images/fordGT.png" alt="">
+        </div>
+        <div class="card_back">
+          <h2>Ford GT</h2>
+          <a href="./pages/marketplace.html" class="introduçaocarro" >O Ford GT é um ícone de engenharia automotiva, projetado para proporcionar uma performance extrema com um design que homenageia a sua rica herança de corridas.</a>
+        </div>
+      </div>
+     </div>
+
+     <div class="card">
+      <div class="card_inner">
+        <div class="card_front">
+          <img src="./images/ferrari.jpg" alt="">
+        </div>
+        <div class="card_back">
+          <h2>Ferrari F430</h2>
+          <a href="./pages/marketplace.html"class="introduçaocarro" >O Ferrari F430 é a combinação perfeita de elegância e desempenho, oferecendo uma experiência de condução intensa e emocionante.</a>
+        </div>
+      </div>
+     </div>
+
+     <div class="card">
+      <div class="card_inner">
+        <div class="card_front">
+          <img src="./images/porsche-911-gt3-2865400_1280.jpg" alt="">
+        </div>
+        <div class="card_back">
+          <h2>Porsche 911</h2>
+          <a href="./pages/marketplace.html"class="introduçaocarro" >O Porsche 911 GT3 é uma obra-prima de precisão e desempenho, oferecendo uma experiência de condução pura com sua engenharia refinada e um motor de alta performance.</a>
+        </div>
+      </div>
+     </div>
+
+
+     
+     <div class="card">
+      <div class="card_inner">
+        <div class="card_front">
+          <img src="./images/mercedes.jpg" alt="">
+        </div>
+        <div class="card_back">
+          <h2>Mercedes AMG</h2>
+          <a href="./pages/marketplace.html"class="introduçaocarro" >
+            Os modelos Mercedes-AMG são a expressão máxima de luxo e potência, combinando engenharia avançada com desempenho extremo para uma experiência de condução incomparável.</a>
+        </div>
+      </div>
+     </div>
+    </div>
+  </section>
+
+    <div class="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <iframe
+            width="100%"
+            height="315"
+            src="https://www.youtube.com/embed/9ngLVS85hO8?si=I1R2GOhlDiAMZ-hu&amp;start=0"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          ></iframe>
+        </div>
+        <div class="carousel-item">
+          <iframe
+            width="100%"
+            height="315"
+            src="https://www.youtube.com/embed/DZAdVY9kKbc?si=QK2K1kDGvgCDxj7f"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          ></iframe>
+        </div>
+        <div class="carousel-item">
+          <iframe
+            width="100%"
+            height="315"
+            src="https://www.youtube.com/embed/FYtEjSuYhPo?si=rpqUEP0NWkL8lO0i&amp;start=55"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          ></iframe>
+        </div>
+        <div class="carousel-item">
+          <iframe
+            width="100%"
+            height="315"
+            src="https://www.youtube.com/embed/2M4PbAMixls"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          ></iframe>
+        </div>
+        <div class="carousel-item">
+          <iframe
+            width="100%"
+            height="315"
+            src="https://www.youtube.com/embed/P0Co_CvA58U"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          ></iframe>
+        </div>
+      </div>
+      <a class="carousel-control prev" href="#">&#10094;</a>
+      <a class="carousel-control next" href="#">&#10095;</a>
+    </div>
+    </div>
+  </section>
+
+    <footer>
+      <div class="container">
+        <div class="footer_col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="./index.html">Home</a></li>
+            <li><a href="./pages/marketplace.html">Marketplace<a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Gallery</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer_col">
+          <h4>Help</h4>
+          <ul>
+            <li><a href="#">FAQ</a></li>
+            <li><a href="#">Order Status<a></li>
+            <li><a href="#">Payments</a></li>
+           
+          </ul>
+        </div> 
+        <div class="footer_col">
+          <h4>Marcas</h4>
+          <ul>
+           
+            <li><a href="#">BMW</a></li>
+            <li><a href="#">Mercedes</a></li>
+            <li><a href="#">Dodge</a></li>
+          </ul>
+        </div> 
+        <div class="footer_col">
+          <h4>Social Media</h4>
+          
+          <div class="social_links">
+          <a class="whatsapp" href=""><i  class="bx bxl-whatsapp"></i></a>
+          <a class="instagram" href=""><i class="bx bxl-instagram"></i></a>
+          <a class="facebook" href=""><i class="bx bxl-facebook"></i></a>
+           </div>
+        </div>
+      </div>
+    </footer>
+    <script src="script.js"></script>
+  </body>
+</html>

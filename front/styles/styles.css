@@ -1,0 +1,372 @@
+@font-face {
+  font-family: Josefins;
+  src: url("../fonts/JosefinSans.ttf");
+}
+
+@font-face {
+  font-family: JosefinsItalic;
+  src: url("../fonts/JosefinSans-Italic.ttf");
+}
+
+* {
+  box-sizing: border-box; /* Inclui o padding e a borda no cálculo da largura e altura dos elementos */
+  padding: 0; /* Remove o padding padrão de todos os elementos */
+  margin: 0; /* Remove o margin padrão de todos os elementos */
+  text-decoration: none; /* Remove o sublinhado dos links por padrão */
+}
+
+.header {
+  position: fixed; /* Faz com que o cabeçalho fique fixo no topo da página */
+  top: 0; /* Alinha o cabeçalho ao topo da página */
+  left: 0; /* Alinha o cabeçalho à esquerda da página */
+  width: 100%; /* Faz com que o cabeçalho ocupe toda a largura da página */
+  padding: 1rem 10%; /* Adiciona padding interno ao cabeçalho */
+  display: flex; /* Usa Flexbox para o layout do cabeçalho */
+  justify-content: space-between; /* Espaça os itens dentro do cabeçalho igualmente, com espaço entre eles */
+  align-items: center; /* Alinha verticalmente os itens no centro do cabeçalho */
+  z-index: 1000;
+}
+
+h2 {
+  color: red; /* Define a cor do texto dos elementos <h2> como vermelho */
+  font-family: JosefinsItalic;
+}
+
+.Titulo {
+  height: 10rem; /* Define a altura das seções como 10rem */
+  display: flex; /* Usa Flexbox para o layout das seções */
+  align-items: center; /* Alinha verticalmente os itens no centro da seção */
+}
+
+.header::before {
+  content: ""; /* Adiciona um pseudo-elemento vazio antes do conteúdo do cabeçalho */
+  position: absolute; /* Posiciona o pseudo-elemento de forma absoluta em relação ao cabeçalho */
+  top: 0; /* Alinha o pseudo-elemento ao topo do cabeçalho */
+  left: 0; /* Alinha o pseudo-elemento à esquerda do cabeçalho */
+  width: 100%; /* Faz com que o pseudo-elemento ocupe toda a largura do cabeçalho */
+  height: 100%; /* Faz com que o pseudo-elemento ocupe toda a altura do cabeçalho */
+  background: rgba(
+    0,
+    0,
+    0,
+    0.5
+  ); /* Adiciona um fundo semitransparente preto ao pseudo-elemento */
+  backdrop-filter: blur(
+    50px
+  ); /* Aplica um desfoque ao fundo atrás do cabeçalho */
+  z-index: -1; /* Coloca o pseudo-elemento atrás do conteúdo do cabeçalho */
+}
+
+.logo {
+  width: 140px;
+  height: 50px;
+  overflow: hidden;
+
+  background: url("../images/logo.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.header::after {
+  content: ""; /* Adiciona um pseudo-elemento vazio após o conteúdo do cabeçalho */
+  position: absolute; /* Posiciona o pseudo-elemento de forma absoluta em relação ao cabeçalho */
+  top: 0; /* Alinha o pseudo-elemento ao topo do cabeçalho */
+  right: -100%; /* Posiciona o pseudo-elemento fora da tela à direita */
+  height: 100%; /* Faz com que o pseudo-elemento ocupe toda a altura do cabeçalho */
+  width: 100%; /* Faz com que o pseudo-elemento ocupe toda a largura do cabeçalho */
+  background: linear-gradient(
+    90deg,
+    transparent,
+    black,
+    red
+  ); /* Adiciona um gradiente preto transparente para criar um efeito de transição */
+  transition: 0.5s; /* Define a duração da transição para o efeito de gradiente */
+}
+
+.header:hover::after {
+  right: 100%; /* Move o pseudo-elemento para a direita da tela quando o cabeçalho é hoverado */
+}
+
+.imgback {
+  background-image: url(../images/concessionaria-f1rst-motors-em-dubai-1656945205320_v2_1x1.jpg);
+}
+
+.imgback .opacity {
+  background: rgba(0, 0, 0, 0.5);
+  padding: 10px;
+}
+
+.navbar a {
+  font-size: 1rem; /* Define o tamanho da fonte dos links de navegação como 1rem */
+  color: red; /* Define a cor do texto dos links de navegação como preto */
+  font-weight: 500; /* Define o peso da fonte dos links de navegação como semi-negrito */
+  margin-left: 2.5rem; /* Adiciona uma margem à esquerda dos links de navegação */
+}
+
+.navbar a:hover {
+  color: white; /* Define a cor do texto dos links de navegação como branco quando o mouse passa sobre eles */
+}
+
+#check {
+  display: none; /* Esconde o checkbox utilizado para controlar o menu móvel */
+}
+
+.icons {
+  position: absolute; /* Posiciona os ícones de forma absoluta em relação ao cabeçalho */
+  right: 5%; /* Alinha os ícones a 5% da borda direita do cabeçalho */
+  font-size: 2.8rem; /* Define o tamanho da fonte dos ícones como 2.8rem */
+  color: black; /* Define a cor dos ícones como preto */
+  cursor: pointer; /* Define o cursor como ponteiro ao passar sobre os ícones */
+  display: none; /* Esconde os ícones por padrão */
+}
+
+.curiosidades h2 {
+  text-align: center;
+}
+
+.cards {
+  display: flex;
+  justify-content: space-between; /* Espaço igual entre os cards */
+  align-items: center;
+  gap: 10px; /* Espaço entre os cards */
+  flex-wrap: wrap; /* Permite que os cards se movam para a linha seguinte se necessário */
+  padding: 20px; /* Espaçamento interno da seção */
+  overflow: hidden;
+}
+.cards .card {
+  width: 250px;
+  height: 200px;
+  perspective: 800px;
+}
+
+.card_inner {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transition: transform 1.5s;
+  transform-style: preserve-3d;
+}
+
+.card:hover > .card_inner {
+  cursor: pointer;
+  transform: rotateY(180deg);
+}
+
+.cards .card_front,
+.cards .card_back {
+  width: 100%;
+  height: 100%;
+  border-radius: 2rem;
+  box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.5);
+  backface-visibility: hidden;
+  position: absolute;
+  overflow: hidden;
+}
+
+.cards .card_back {
+  transform: rotateY(180deg);
+  background-color: #000000;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.cards .card_front img {
+  width: 100%;
+  height: 100%;
+}
+
+.cards .card_back h2 {
+  color: #fff;
+}
+
+.carousel {
+  position: relative;
+  width: 500px;
+  margin-left: 33%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+}
+
+.carousel-inner {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+
+.carousel-item {
+  min-width: 100%;
+  box-sizing: border-box;
+}
+
+.carousel-control {
+  position: absolute;
+  top: 50%;
+  width: 40px;
+  height: 40px;
+  background: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  text-align: center;
+  line-height: 40px;
+  font-size: 24px;
+  cursor: pointer;
+  border-radius: 50%;
+  transform: translateY(-50%);
+  z-index: 100;
+}
+
+.carousel-control.prev {
+  left: 10px;
+}
+
+.carousel-control.next {
+  right: 10px;
+}
+/*inicio do rodape  */
+footer {
+  width: 100%;
+  background-color: #000000;
+  padding: 30px;
+}
+.container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  padding: 1.5rem 1.5rem;
+}
+footer ul {
+  list-style: none;
+}
+.footer_col {
+  width: 100%;
+  height: 100%;
+}
+.footer_col h4 {
+  color: white;
+  margin-bottom: 30px;
+  position: relative;
+}
+.footer_col h4::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -10px;
+  background-color: red;
+  height: 2px;
+  width: 50px;
+}
+.footer_col ul li:not(:last-child) {
+  margin-bottom: 20px;
+}
+.footer_col ul li a {
+  font-size: 15px;
+  text-decoration: none;
+  color: gray;
+  display: block;
+  transition: all 0.7s ease;
+}
+.footer_col ul li a:hover {
+  color: aquamarine;
+  padding-left: 5px;
+}
+
+.footer_col .social_links a {
+  display: inline-block;
+  height: 50px;
+  width: 50px;
+  margin: 0 10px;
+  text-align: center;
+  line-height: 50px;
+  border-radius: 50%;
+  color: white;
+  transition: all 1s ease;
+}
+
+.footer_col .social_links a:hover {
+  background-color: white;
+  color: black;
+}
+/*fim do rodape */
+
+/* -- Breakpoints -- */
+@media (max-width: 992px) {
+  /* Estilos para dispositivos com largura máxima de 992px */
+
+  .header {
+    padding: 1rem 5%; /* Reduz o padding do cabeçalho para 5% nas laterais em telas menores */
+  }
+}
+
+@media (max-width: 768px) {
+  /* Estilos para dispositivos com largura máxima de 768px */
+
+  .icons {
+    display: inline-flex; /* Exibe os ícones como flexíveis em linha */
+  }
+
+  #check:checked ~ .icons #menu-icon {
+    display: none; /* Esconde o ícone de menu quando o checkbox está marcado */
+  }
+
+  .icons #close-icon {
+    display: none; /* Esconde o ícone de fechar por padrão */
+  }
+
+  #check:checked ~ .icons #close-icon {
+    display: block; /* Exibe o ícone de fechar quando o checkbox está marcado */
+  }
+
+  .navbar {
+    position: absolute; /* Posiciona a barra de navegação de forma absoluta em relação ao cabeçalho */
+    top: 100%; /* Posiciona a barra de navegação abaixo do cabeçalho */
+    right: 0; /* Alinha a barra de navegação à direita */
+    width: 100%; /* Faz com que a barra de navegação ocupe toda a largura disponível */
+    height: 0; /* Define a altura da barra de navegação como 0 por padrão */
+    background-color: blueviolet; /* Define a cor de fundo da barra de navegação */
+    overflow: hidden; /* Oculta o conteúdo que excede a altura da barra de navegação */
+    transition: 0.3s ease; /* Define a duração da transição para a expansão da barra de navegação */
+  }
+
+  #check:checked ~ .navbar {
+    height: 50vh; /* Define a altura da barra de navegação para 50% da altura da visualização quando o checkbox está marcado */
+  }
+
+  .navbar a {
+    display: block; /* Exibe os links da barra de navegação como blocos */
+    font-size: 1rem; /* Define o tamanho da fonte dos links como 1rem */
+    margin: 20px 0; /* Adiciona margens superior e inferior de 20px aos links */
+    text-align: center; /* Centraliza o texto dos links */
+    transform: translateY(-50px); /* Move os links 50px para cima por padrão */
+    transition: 0.3s ease; /* Define a duração da transição para a movimentação dos links */
+    opacity: 0; /* Define a opacidade dos links como 0 por padrão */
+  }
+
+  #check:checked ~ .navbar a {
+    transform: translateY(
+      0
+    ); /* Move os links para a posição original quando o checkbox está marcado */
+    transition-delay: calc(
+      0.15s * var(--i)
+    ); /* Adiciona um atraso à transição baseado na variável --i */
+    opacity: 1; /* Define a opacidade dos links como 1 quando o checkbox está marcado */
+  }
+  .container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+}
+@media (max-width: 466px) {
+  .container {
+    grid-template-columns: repeat(1, 1fr);
+    gap: 2rem;
+  }
+}
+
+.introduçaocarro {
+  color: white;
+  padding: 10px;
+}
