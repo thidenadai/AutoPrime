@@ -46,6 +46,7 @@ app.post("/adicionar-anuncio", upload.array("imagens", 5), (req, res) => {
 
   const sql =
     "INSERT INTO carros (modelo, marca, ano, preço, descrição, imagens_urls) VALUES (?, ?, ?, ?, ?, ?)";
+
   db.query(
     sql,
     [modelo, marca, ano, preco, descricao, JSON.stringify(imagens_urls)],
@@ -78,7 +79,6 @@ app.get("/anuncios", (req, res) => {
     res.json(results);
   });
 });
-
 app.listen(port, () => {
   console.log(`Servidor rodando na porta ${port}`);
 });
