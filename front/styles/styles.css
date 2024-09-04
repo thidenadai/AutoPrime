@@ -381,12 +381,3 @@ footer ul {
   height: 200px;
   width: 200px;
 }
-
-.addAnuncio {
-  border: #000000;
-  border-width: 2px;
-  background-color: aqua;
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
-}

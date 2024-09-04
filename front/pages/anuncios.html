@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../styles/styles.css" />
+    <link rel="stylesheet" href="../styles/stylesaddanuncios.css" />
     <title>Lista de Anúncios</title>
   </head>
   <body>
@@ -25,9 +25,11 @@
         <textarea id="descricao" name="descricao" required></textarea>
         <label for="imagens">Imagens:</label>
         <input type="file" id="imagens" name="imagens" multiple />
-        <button type="submit" href="./marketplace.html">
-          Adicionar Anúncio
-        </button>
+
+        <!-- Contêiner para as imagens de preview -->
+        <div id="imagePreviewContainer"></div>
+
+        <button type="submit">Adicionar Anúncio</button>
       </section>
     </form>
 
@@ -47,10 +49,41 @@
             .then((response) => response.text())
             .then((result) => {
               alert(result);
+
+              window.location.href = "./marketplace.html"; // Redirecionar para o marketplace após adicionar o anúncio
             })
             .catch((error) => {
               console.error("Erro ao adicionar anúncio:", error);
             });
+        });
+
+      // Função para exibir o preview das imagens
+      document
+        .getElementById("imagens")
+        .addEventListener("change", function () {
+          const imagePreviewContainer = document.getElementById(
+            "imagePreviewContainer"
+          );
+          imagePreviewContainer.innerHTML = ""; // Limpa as imagens de preview anteriores
+
+          const files = this.files;
+
+          for (let i = 0; i < files.length; i++) {
+            const file = files[i];
+            const reader = new FileReader();
+
+            reader.onload = function (e) {
+              const imgElement = document.createElement("img");
+              imgElement.src = e.target.result;
+              imgElement.alt = `Imagem ${i + 1}`;
+
+              imgElement.classList.add("previewimg"); // Adiciona uma classe para estilizar as imagens
+
+              imagePreviewContainer.appendChild(imgElement);
+            };
+
+            reader.readAsDataURL(file);
+          }
         });
     </script>
   </body>
