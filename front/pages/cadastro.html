@@ -3,24 +3,23 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Faca seu cadastro!</title>
+    <title>Faça seu cadastro!</title>
     <link rel="stylesheet" href="../styles/stylescadastro.css" />
+    <script src="../script/scripts.js" defer></script>
   </head>
   <body>
     <div class="container">
       <div class="left-section">
-        <img
-          src="../images/pexels-felix-haumann-1938529-14617646.jpg"
-          alt="GOLF GTI"
-        />
+        <img src="../images/imgCadastro.jpg" alt="GOLF GTI" />
       </div>
       <div class="right-section">
-        <h2>FACA SEU CADASTRO!</h2>
-        <form>
+        <h2>FAÇA SEU CADASTRO!</h2>
+        <form id="cadastroForm" action="cadastrar.php" method="POST">
           <div class="input-group">
             <label for="primeiroNome">PRIMEIRO NOME</label>
             <input
               type="text"
+              name="primeiroNome"
               id="primeiroNome"
               placeholder="Digite seu primeiro nome"
               required
@@ -30,6 +29,7 @@
             <label for="sobrenome">SOBRENOME</label>
             <input
               type="text"
+              name="sobrenome"
               id="sobrenome"
               placeholder="Digite seu sobrenome"
               required
@@ -39,6 +39,7 @@
             <label for="email">E-MAIL</label>
             <input
               type="email"
+              name="email"
               id="email"
               placeholder="Digite seu e-mail"
               required
@@ -48,8 +49,10 @@
             <label for="celular">CELULAR</label>
             <input
               type="tel"
+              name="celular"
               id="celular"
               placeholder="(xx) xxxxx-xxxx"
+              pattern="\(\d{2}\) \d{5}-\d{4}"
               required
             />
           </div>
@@ -57,6 +60,7 @@
             <label for="senha">SENHA</label>
             <input
               type="password"
+              name="senha"
               id="senha"
               placeholder="Digite sua senha"
               required
@@ -66,13 +70,65 @@
             <label for="confirmarSenha">CONFIRME SUA SENHA</label>
             <input
               type="password"
+              name="confirmarSenha"
               id="confirmarSenha"
               placeholder="Digite sua senha novamente"
               required
             />
           </div>
-          <button type="submit" href="../index.html">CADASTRAR!</button>
+          <div class="input-group">
+            <label for="cep">CEP</label>
+            <input
+              type="text"
+              name="cep"
+              id="cep"
+              placeholder="Digite seu CEP"
+              required
+            />
+          </div>
+          <div class="input-group">
+            <label for="rua">RUA</label>
+            <input
+              type="text"
+              name="rua"
+              id="rua"
+              placeholder="Nome da Rua"
+              required
+            />
+          </div>
+          <div class="input-group">
+            <label for="numero">NÚMERO</label>
+            <input
+              type="text"
+              name="numero"
+              id="numero"
+              placeholder="Número da Casa"
+              required
+            />
+          </div>
+          <div class="input-group">
+            <label for="bairro">BAIRRO</label>
+            <input
+              type="text"
+              name="bairro"
+              id="bairro"
+              placeholder="Nome do Bairro"
+              required
+            />
+          </div>
+          <div class="input-group">
+            <label for="cidade">CIDADE</label>
+            <input
+              type="text"
+              name="cidade"
+              id="cidade"
+              placeholder="Nome da Cidade"
+              required
+            />
+          </div>
+          <button type="submit">CADASTRAR!</button>
         </form>
+        <div id="resultado"></div>
       </div>
     </div>
   </body>
